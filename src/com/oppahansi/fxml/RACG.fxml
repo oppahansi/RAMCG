@@ -1,0 +1,1254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.oppahansi.controller.Main">
+  <content>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="2000.0" prefWidth="1280.0">
+         <children>
+            <Label layoutX="487.0" layoutY="14.0" prefHeight="30.0" prefWidth="388.0" text="Reddit Automoderator Config Generator" textAlignment="CENTER" AnchorPane.topAnchor="14.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="567.0" layoutY="37.0" text="Creating simple rules:">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Separator layoutX="160.0" layoutY="74.0" prefHeight="10.0" prefWidth="960.0" />
+            <Label layoutX="500.0" layoutY="92.0" prefHeight="21.0" prefWidth="339.0" text="When a user makes a submission of this type ...">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Group id="typeGroup" fx:id="typeGroup" layoutX="333.0" layoutY="120.0">
+               <children>
+                  <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="Any">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="type" />
+                     </toggleGroup>
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Default option chosen if no other is specified. Every submission type will be checked." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </RadioButton>
+                  <RadioButton layoutX="55.0" mnemonicParsing="false" text="Submission" toggleGroup="$type">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Video or Image submission." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </RadioButton>
+                  <RadioButton layoutX="150.0" mnemonicParsing="false" text="Comment" toggleGroup="$type">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="A comment is a comment / reply to a submission." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </RadioButton>
+                  <RadioButton layoutX="240.0" mnemonicParsing="false" text="Text Submission" toggleGroup="$type">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Text Submission." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </RadioButton>
+                  <RadioButton layoutX="360.0" mnemonicParsing="false" text="Link Submission" toggleGroup="$type">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Link Submission." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </RadioButton>
+                  <RadioButton layoutX="480.0" layoutY="1.0" mnemonicParsing="false" text="Crosspost Submission" toggleGroup="$type">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Crosspost Submission. Possible repost of submission from another subreddit." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </RadioButton>
+               </children>
+            </Group>
+            <Separator layoutX="164.0" layoutY="148.0" prefHeight="10.0" prefWidth="960.0" />
+            <Label layoutX="589.0" layoutY="170.0" text="Check its ...">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Pane fx:id="subTitle" layoutX="101.0" layoutY="197.0" prefHeight="275.0" prefWidth="345.0">
+               <children>
+                  <CheckBox layoutX="151.0" layoutY="6.0" mnemonicParsing="false" text="Title">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The submission's title." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <TextArea layoutX="13.0" layoutY="31.0" prefHeight="155.0" prefWidth="320.0" />
+                  <CheckBox layoutX="13.0" layoutY="193.0" mnemonicParsing="false" text="regex">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The search strings will be interpreted as regular expressions, rather than literal strings. Recommended for advanced users only." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="121.0" layoutY="193.0" mnemonicParsing="false" text="inverse">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The match will be successful if the search strings are not found in the text." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="235.0" layoutY="193.0" mnemonicParsing="false" text="case sensetive">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Treat the search string as case-sensitive, instead of the case-insensitive default mode." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <Group id="typeGroup" fx:id="typeGroup1" layoutX="13.0" layoutY="223.0">
+                     <children>
+                        <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="includes-word">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for an entire word matching the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchCheckTitle" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" mnemonicParsing="false" text="includes" toggleGroup="$searchCheckTitle">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for the text, regardless of whether it is included inside other words." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" mnemonicParsing="false" text="starts-with" toggleGroup="$searchCheckTitle">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject starts with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutY="20.0" mnemonicParsing="false" text="ends-with" toggleGroup="$searchCheckTitle">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject ends with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" layoutY="20.0" mnemonicParsing="false" text="full-exact" toggleGroup="$searchCheckTitle">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Checks if the entire subject matches the text exactly." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" layoutY="20.0" mnemonicParsing="false" text="full-text" toggleGroup="$searchCheckTitle">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Similar to full-exact, except punctuation/spacing on either end of the subject is not considered." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <Pane fx:id="subDomain" layoutX="469.0" layoutY="197.0" prefHeight="275.0" prefWidth="345.0">
+               <children>
+                  <CheckBox layoutX="140.0" layoutY="6.0" mnemonicParsing="false" text="Domain">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The submission's domain. For a text submission, this is &quot;self.subredditname&quot;-" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <TextArea layoutX="13.0" layoutY="31.0" prefHeight="155.0" prefWidth="320.0" />
+                  <CheckBox layoutX="13.0" layoutY="193.0" mnemonicParsing="false" text="regex">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The search strings will be interpreted as regular expressions, rather than literal strings. Recommended for advanced users only." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="121.0" layoutY="193.0" mnemonicParsing="false" text="inverse">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The match will be successful if the search strings are not found in the text." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="235.0" layoutY="193.0" mnemonicParsing="false" text="case sensetive">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Treat the search string as case-sensitive, instead of the case-insensitive default mode." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <Group id="typeGroup" fx:id="typeGroup11" layoutX="13.0" layoutY="223.0">
+                     <children>
+                        <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="includes-word">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for an entire word matching the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchCheckTitle1" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" mnemonicParsing="false" text="includes" toggleGroup="$searchCheckTitle1">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for the text, regardless of whether it is included inside other words." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" mnemonicParsing="false" text="starts-with" toggleGroup="$searchCheckTitle1">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject starts with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutY="20.0" mnemonicParsing="false" text="ends-with" toggleGroup="$searchCheckTitle1">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject ends with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" layoutY="20.0" mnemonicParsing="false" text="full-exact" toggleGroup="$searchCheckTitle1">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Checks if the entire subject matches the text exactly." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" layoutY="20.0" mnemonicParsing="false" text="full-text" toggleGroup="$searchCheckTitle1">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Similar to full-exact, except punctuation/spacing on either end of the subject is not considered." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <Pane fx:id="subUrl" layoutX="836.0" layoutY="197.0" prefHeight="275.0" prefWidth="345.0">
+               <children>
+                  <CheckBox layoutX="153.0" layoutY="6.0" mnemonicParsing="false" text="Url">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The submission's full url. Cannot be checked for text submissions." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <TextArea layoutX="13.0" layoutY="31.0" prefHeight="155.0" prefWidth="320.0" />
+                  <CheckBox layoutX="13.0" layoutY="193.0" mnemonicParsing="false" text="regex">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The search strings will be interpreted as regular expressions, rather than literal strings. Recommended for advanced users only." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="121.0" layoutY="193.0" mnemonicParsing="false" text="inverse">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The match will be successful if the search strings are not found in the text." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="235.0" layoutY="193.0" mnemonicParsing="false" text="case sensetive">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Treat the search string as case-sensitive, instead of the case-insensitive default mode." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <Group id="typeGroup" fx:id="typeGroup12" layoutX="13.0" layoutY="223.0">
+                     <children>
+                        <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="includes-word">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for an entire word matching the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchCheckTitle2" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" mnemonicParsing="false" text="includes" toggleGroup="$searchCheckTitle2">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for the text, regardless of whether it is included inside other words." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" mnemonicParsing="false" text="starts-with" toggleGroup="$searchCheckTitle2">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject starts with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutY="20.0" mnemonicParsing="false" text="ends-with" toggleGroup="$searchCheckTitle2">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject ends with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" layoutY="20.0" mnemonicParsing="false" text="full-exact" toggleGroup="$searchCheckTitle2">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Checks if the entire subject matches the text exactly." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" layoutY="20.0" mnemonicParsing="false" text="full-text" toggleGroup="$searchCheckTitle2">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Similar to full-exact, except punctuation/spacing on either end of the subject is not considered." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <Pane fx:id="subBody" layoutX="101.0" layoutY="487.0" prefHeight="275.0" prefWidth="345.0">
+               <children>
+                  <CheckBox fx:id="subBodyChecked" layoutX="147.0" layoutY="6.0" mnemonicParsing="false" text="Body">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="For text submissions, the full text of the post. Cannot be checked for link submissions." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <TextArea layoutX="13.0" layoutY="31.0" prefHeight="155.0" prefWidth="320.0" />
+                  <CheckBox layoutX="13.0" layoutY="193.0" mnemonicParsing="false" text="regex">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The search strings will be interpreted as regular expressions, rather than literal strings. Recommended for advanced users only." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="121.0" layoutY="193.0" mnemonicParsing="false" text="inverse">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The match will be successful if the search strings are not found in the text." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="235.0" layoutY="193.0" mnemonicParsing="false" text="case sensetive">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Treat the search string as case-sensitive, instead of the case-insensitive default mode." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <Group id="typeGroup" fx:id="typeGroup13" layoutX="13.0" layoutY="223.0">
+                     <children>
+                        <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="includes-word">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for an entire word matching the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchCheckTitle3" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" mnemonicParsing="false" text="includes" toggleGroup="$searchCheckTitle3">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for the text, regardless of whether it is included inside other words." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" mnemonicParsing="false" text="starts-with" toggleGroup="$searchCheckTitle3">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject starts with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutY="20.0" mnemonicParsing="false" text="ends-with" toggleGroup="$searchCheckTitle3">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject ends with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" layoutY="20.0" mnemonicParsing="false" text="full-exact" toggleGroup="$searchCheckTitle3">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Checks if the entire subject matches the text exactly." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" layoutY="20.0" mnemonicParsing="false" text="full-text" toggleGroup="$searchCheckTitle3">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Similar to full-exact, except punctuation/spacing on either end of the subject is not considered." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <Pane fx:id="subFlairText" layoutX="469.0" layoutY="487.0" prefHeight="275.0" prefWidth="345.0">
+               <children>
+                  <CheckBox fx:id="subFlairTextChecked" layoutX="137.0" layoutY="6.0" mnemonicParsing="false" text="Flair Text">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The text of the submission's link flair." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <TextArea layoutX="13.0" layoutY="31.0" prefHeight="155.0" prefWidth="320.0" />
+                  <CheckBox layoutX="13.0" layoutY="193.0" mnemonicParsing="false" text="regex">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The search strings will be interpreted as regular expressions, rather than literal strings. Recommended for advanced users only." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="121.0" layoutY="193.0" mnemonicParsing="false" text="inverse">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The match will be successful if the search strings are not found in the text." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="235.0" layoutY="193.0" mnemonicParsing="false" text="case sensetive">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Treat the search string as case-sensitive, instead of the case-insensitive default mode." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <Group id="typeGroup" fx:id="typeGroup111" layoutX="13.0" layoutY="223.0">
+                     <children>
+                        <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="includes-word">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for an entire word matching the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchCheckTitle11" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" mnemonicParsing="false" text="includes" toggleGroup="$searchCheckTitle11">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for the text, regardless of whether it is included inside other words." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" mnemonicParsing="false" text="starts-with" toggleGroup="$searchCheckTitle11">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject starts with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutY="20.0" mnemonicParsing="false" text="ends-with" toggleGroup="$searchCheckTitle11">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject ends with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" layoutY="20.0" mnemonicParsing="false" text="full-exact" toggleGroup="$searchCheckTitle11">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Checks if the entire subject matches the text exactly." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" layoutY="20.0" mnemonicParsing="false" text="full-text" toggleGroup="$searchCheckTitle11">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Similar to full-exact, except punctuation/spacing on either end of the subject is not considered." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <Pane fx:id="subFlairCss" layoutX="836.0" layoutY="487.0" prefHeight="275.0" prefWidth="345.0">
+               <children>
+                  <CheckBox fx:id="subFlairCssChecked" layoutX="123.0" layoutY="6.0" mnemonicParsing="false" text="Flair CSS Class">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The css class of the submission's link flair." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <TextArea layoutX="13.0" layoutY="31.0" prefHeight="155.0" prefWidth="320.0" />
+                  <CheckBox layoutX="13.0" layoutY="193.0" mnemonicParsing="false" text="regex">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The search strings will be interpreted as regular expressions, rather than literal strings. Recommended for advanced users only." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="121.0" layoutY="193.0" mnemonicParsing="false" text="inverse">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The match will be successful if the search strings are not found in the text." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="235.0" layoutY="193.0" mnemonicParsing="false" text="case sensetive">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Treat the search string as case-sensitive, instead of the case-insensitive default mode." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <Group id="typeGroup" fx:id="typeGroup121" layoutX="13.0" layoutY="223.0">
+                     <children>
+                        <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="includes-word">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for an entire word matching the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchCheckTitle21" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" mnemonicParsing="false" text="includes" toggleGroup="$searchCheckTitle21">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for the text, regardless of whether it is included inside other words." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" mnemonicParsing="false" text="starts-with" toggleGroup="$searchCheckTitle21">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject starts with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutY="20.0" mnemonicParsing="false" text="ends-with" toggleGroup="$searchCheckTitle21">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject ends with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" layoutY="20.0" mnemonicParsing="false" text="full-exact" toggleGroup="$searchCheckTitle21">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Checks if the entire subject matches the text exactly." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" layoutY="20.0" mnemonicParsing="false" text="full-text" toggleGroup="$searchCheckTitle21">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Similar to full-exact, except punctuation/spacing on either end of the subject is not considered." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <Separator layoutX="161.0" layoutY="777.0" prefHeight="10.0" prefWidth="960.0" />
+            <Label layoutX="577.0" layoutY="797.0" text="Check user's ...">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Pane fx:id="userName" layoutX="454.0" layoutY="841.0" prefHeight="275.0" prefWidth="345.0">
+               <children>
+                  <CheckBox fx:id="userNameChecked" layoutX="144.0" layoutY="6.0" mnemonicParsing="false" text="Name">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The css class of the submission's link flair." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <TextArea layoutX="13.0" layoutY="31.0" prefHeight="155.0" prefWidth="320.0" />
+                  <CheckBox layoutX="80.0" layoutY="193.0" mnemonicParsing="false" text="regex">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The search strings will be interpreted as regular expressions, rather than literal strings. Recommended for advanced users only." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox layoutX="188.0" layoutY="193.0" mnemonicParsing="false" text="inverse">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The match will be successful if the search strings are not found in the text." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </CheckBox>
+                  <Group id="typeGroup" fx:id="typeGroup1211" layoutX="13.0" layoutY="223.0">
+                     <children>
+                        <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="includes-word">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for an entire word matching the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchCheckTitle211" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" mnemonicParsing="false" text="includes" toggleGroup="$searchCheckTitle211">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for the text, regardless of whether it is included inside other words." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" mnemonicParsing="false" text="starts-with" toggleGroup="$searchCheckTitle211">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject starts with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutY="20.0" mnemonicParsing="false" text="ends-with" toggleGroup="$searchCheckTitle211">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject ends with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="135.0" layoutY="20.0" mnemonicParsing="false" text="full-exact" toggleGroup="$searchCheckTitle211">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Checks if the entire subject matches the text exactly." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <RadioButton layoutX="240.0" layoutY="20.0" mnemonicParsing="false" text="full-text" toggleGroup="$searchCheckTitle211">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Similar to full-exact, except punctuation/spacing on either end of the subject is not considered." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <Pane fx:id="userName1" layoutX="189.0" layoutY="1130.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="userNameChecked1" layoutX="42.0" layoutY="14.0" mnemonicParsing="false" text="Comment Karma">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The css class of the submission's link flair." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <Group id="typeGroup" fx:id="typeGroup12111" layoutX="14.0" layoutY="55.0">
+                     <children>
+                        <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="    &gt;">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for an entire word matching the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchCheckTitle2111" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="-2.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="30.0" mnemonicParsing="false" text="    &gt;=" toggleGroup="$searchCheckTitle2111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for the text, regardless of whether it is included inside other words." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="26.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="60.0" mnemonicParsing="false" text="    &lt;" toggleGroup="$searchCheckTitle2111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject starts with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="56.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="90.0" mnemonicParsing="false" text="    &lt;=" toggleGroup="$searchCheckTitle2111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject ends with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="86.0" prefHeight="25.0" prefWidth="88.0" />
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <Pane fx:id="userName11" layoutX="414.0" layoutY="1130.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="userNameChecked11" layoutX="58.0" layoutY="14.0" mnemonicParsing="false" text="Link Karma">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The css class of the submission's link flair." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <Group id="typeGroup" fx:id="typeGroup121111" layoutX="14.0" layoutY="55.0">
+                     <children>
+                        <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="    &gt;">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for an entire word matching the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchCheckTitle21111" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="-2.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="30.0" mnemonicParsing="false" text="    &gt;=" toggleGroup="$searchCheckTitle21111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for the text, regardless of whether it is included inside other words." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="26.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="60.0" mnemonicParsing="false" text="    &lt;" toggleGroup="$searchCheckTitle21111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject starts with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="56.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="90.0" mnemonicParsing="false" text="    &lt;=" toggleGroup="$searchCheckTitle21111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject ends with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="86.0" prefHeight="25.0" prefWidth="88.0" />
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <Pane fx:id="userName111" layoutX="639.0" layoutY="1130.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="userNameChecked111" layoutX="55.0" layoutY="14.0" mnemonicParsing="false" text="Total Karma">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The css class of the submission's link flair." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <Group id="typeGroup" fx:id="typeGroup1211111" layoutX="14.0" layoutY="55.0">
+                     <children>
+                        <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="    &gt;">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for an entire word matching the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchCheckTitle211111" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="-2.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="30.0" mnemonicParsing="false" text="    &gt;=" toggleGroup="$searchCheckTitle211111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for the text, regardless of whether it is included inside other words." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="26.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="60.0" mnemonicParsing="false" text="    &lt;" toggleGroup="$searchCheckTitle211111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject starts with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="56.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="90.0" mnemonicParsing="false" text="    &lt;=" toggleGroup="$searchCheckTitle211111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject ends with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="86.0" prefHeight="25.0" prefWidth="88.0" />
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <Pane fx:id="userName1111" layoutX="864.0" layoutY="1130.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="userNameChecked1111" layoutX="55.0" layoutY="14.0" mnemonicParsing="false" text="Account Age">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The css class of the submission's link flair." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <Group id="typeGroup" fx:id="typeGroup12111111" layoutX="14.0" layoutY="55.0">
+                     <children>
+                        <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="    &gt;">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for an entire word matching the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="searchCheckTitle2111111" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="-2.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="30.0" mnemonicParsing="false" text="    &gt;=" toggleGroup="$searchCheckTitle2111111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Searches for the text, regardless of whether it is included inside other words." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="26.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="60.0" mnemonicParsing="false" text="    &lt;" toggleGroup="$searchCheckTitle2111111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject starts with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="56.0" prefHeight="25.0" prefWidth="88.0" />
+                        <RadioButton layoutY="90.0" mnemonicParsing="false" text="    &lt;=" toggleGroup="$searchCheckTitle2111111">
+                           <tooltip>
+                              <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Only checks if the subject ends with the text." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Tooltip>
+                           </tooltip>
+                        </RadioButton>
+                        <Spinner editable="true" layoutX="70.0" layoutY="86.0" prefHeight="25.0" prefWidth="88.0" />
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <CheckBox layoutX="556.0" layoutY="1320.0" mnemonicParsing="false" text="Satisfy any threshold?">
+               <tooltip>
+                  <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="If checked and any karma or age threshold checks are being done, only one of the checks will need to be successful. If NOT checked, ALL the checks will need to be satisfied for the rule to trigger (this is the default behavior)" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </CheckBox>
+            <Separator layoutX="149.0" layoutY="1369.0" prefHeight="10.0" prefWidth="960.0" />
+            <Label layoutX="519.0" layoutY="1390.0" text="Then perform these actions ...">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <CheckBox layoutX="274.0" layoutY="1424.0" mnemonicParsing="false" text="Moderate?">
+               <tooltip>
+                  <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="If checked and any karma or age threshold checks are being done, only one of the checks will need to be successful. If NOT checked, ALL the checks will need to be satisfied for the rule to trigger (this is the default behavior)" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </CheckBox>
+            <Group id="typeGroup" fx:id="typeGroup2" disable="true" layoutX="448.0" layoutY="1423.0">
+               <children>
+                  <RadioButton minWidth="-Infinity" mnemonicParsing="false" selected="true" text="Approve">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Default option chosen if no other is specified. Every submission type will be checked." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="actionType" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton layoutX="75.0" mnemonicParsing="false" text="Remove" toggleGroup="$actionType">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Video or Image submission." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </RadioButton>
+                  <RadioButton layoutX="150.0" mnemonicParsing="false" text="Spam" toggleGroup="$actionType">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="A comment is a comment / reply to a submission." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </RadioButton>
+                  <RadioButton layoutX="215.0" mnemonicParsing="false" text="Filter" toggleGroup="$actionType">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Text Submission." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </RadioButton>
+                  <RadioButton layoutX="275.0" mnemonicParsing="false" text="Report" toggleGroup="$actionType">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="Link Submission." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </RadioButton>
+               </children>
+            </Group>
+            <TextField layoutX="445.0" layoutY="1459.0" prefHeight="25.0" prefWidth="667.0" />
+            <Label layoutX="296.0" layoutY="1463.0" text="Action reason:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Pane fx:id="userName2" layoutX="92.0" layoutY="1537.0" prefHeight="228.0" prefWidth="345.0">
+               <children>
+                  <CheckBox fx:id="userNameChecked2" layoutX="58.0" layoutY="6.0" mnemonicParsing="false" text="Leave a comment below submission?">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The css class of the submission's link flair." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <TextArea layoutX="13.0" layoutY="31.0" prefHeight="155.0" prefWidth="320.0" />
+                  <CheckBox layoutX="116.0" layoutY="197.0" mnemonicParsing="false" text="Sticky Comment?">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="If checked and any karma or age threshold checks are being done, only one of the checks will need to be successful. If NOT checked, ALL the checks will need to be satisfied for the rule to trigger (this is the default behavior)" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </Pane>
+            <Pane fx:id="userName21" layoutX="462.0" layoutY="1537.0" prefHeight="275.0" prefWidth="345.0">
+               <children>
+                  <CheckBox fx:id="userNameChecked21" layoutX="119.0" layoutY="6.0" mnemonicParsing="false" text="Send Modmail?">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The css class of the submission's link flair." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <TextArea layoutX="13.0" layoutY="31.0" prefHeight="155.0" prefWidth="320.0" />
+                  <Label layoutX="126.0" layoutY="196.0" text="Modmail Subject:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="14.0" layoutY="225.0" prefHeight="25.0" prefWidth="319.0" text="AutoModerator notification" />
+               </children>
+            </Pane>
+            <Pane fx:id="userName211" layoutX="828.0" layoutY="1537.0" prefHeight="275.0" prefWidth="345.0">
+               <children>
+                  <CheckBox fx:id="userNameChecked211" layoutX="119.0" layoutY="6.0" mnemonicParsing="false" text="Send Message?">
+                     <tooltip>
+                        <Tooltip maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" text="The css class of the submission's link flair." textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <TextArea layoutX="13.0" layoutY="31.0" prefHeight="155.0" prefWidth="320.0" />
+                  <Label layoutX="126.0" layoutY="196.0" text="Message Subject:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="14.0" layoutY="225.0" prefHeight="25.0" prefWidth="319.0" text="AutoModerator notification" />
+               </children>
+            </Pane>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>
