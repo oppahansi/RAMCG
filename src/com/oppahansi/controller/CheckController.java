@@ -15,12 +15,6 @@ import javafx.scene.layout.GridPane;
 
 public class CheckController {
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private GridPane checkItemsGrid;
 
     @FXML
@@ -34,28 +28,16 @@ public class CheckController {
 
     @FXML
     void onAddButtonClicked(ActionEvent event) {
-        Method method;
-        int result = -1;
+        int result = checkItemsGrid.getRowCount();
 
-        try {
-            method = checkItemsGrid.getClass().getDeclaredMethod("getNumberOfRows");
+        if (result >= 0) {
+            JFXTextField newInputField = new JFXTextField();
+            newInputField.setFocusColor(inputField.getFocusColor());
+            newInputField.setUnFocusColor(inputField.getUnFocusColor());
 
-            if (method != null) {
-                method.setAccessible(true);
-                result = method.invoke(checkItemsGrid) != null ? (Integer) method.invoke(checkItemsGrid) : -1;
-            }
-
-            if (result >= 0) {
-                JFXTextField newInputField = new JFXTextField();
-                newInputField.setFocusColor(inputField.getFocusColor());
-                newInputField.setUnFocusColor(inputField.getUnFocusColor());
-
-                checkItemsGrid.getChildren().remove(addButton);
-                checkItemsGrid.add(newInputField, 1, result-1);
-                checkItemsGrid.add(addButton, 1, result);
-            }
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            checkItemsGrid.getChildren().remove(addButton);
+            checkItemsGrid.add(newInputField, 1, result-1);
+            checkItemsGrid.add(addButton, 1, result);
         }
     }
 
@@ -64,6 +46,5 @@ public class CheckController {
         assert checkItemsGrid != null : "fx:id=\"checkItemsGrid\" was not injected: check your FXML file 'Check.fxml'.";
         assert addButton != null : "fx:id=\"addButton\" was not injected: check your FXML file 'Check.fxml'.";
         assert checkModifier != null : "fx:id=\"checkModifier\" was not injected: check your FXML file 'Check.fxml'.";
-
     }
 }
