@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #cee3f8;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.oppahansi.controller.RamcgController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #cee3f8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.oppahansi.controller.RamcgController">
    <content>
       <VBox alignment="TOP_CENTER" prefWidth="1280.0" style="-fx-background-color: #cee3f8;">
          <children>
@@ -39,18 +39,18 @@
                   <Insets bottom="10.0" top="10.0" />
                </padding>
             </Label>
-            <HBox alignment="TOP_CENTER" prefHeight="25.0" prefWidth="975.0">
+            <HBox fx:id="subTypeContainer" alignment="TOP_CENTER" prefHeight="25.0" prefWidth="975.0">
                <children>
-                  <JFXToggleButton fx:id="submissionTypeAny" maxHeight="-Infinity" minHeight="-Infinity" onAction="#onAnySubmission" prefHeight="25.0" selected="true" size="9.0" text="Any" toggleColor="ORANGERED" toggleLineColor="#5f99cf">
+                  <JFXToggleButton fx:id="submissionTypeAny" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" selected="true" size="9.0" text="Any" toggleColor="ORANGERED" toggleLineColor="#5f99cf">
                      <toggleGroup>
                         <ToggleGroup fx:id="submissionType" />
                      </toggleGroup>
                   </JFXToggleButton>
                   <JFXToggleButton fx:id="submissionTypeMedia" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" size="9.0" text="Media" toggleColor="ORANGERED" toggleGroup="$submissionType" toggleLineColor="#5f99cf" />
-                  <JFXToggleButton fx:id="submissionTypeComment" maxHeight="-Infinity" minHeight="-Infinity" onAction="#onCommentSubmission" prefHeight="25.0" size="9.0" text="Comment" toggleColor="ORANGERED" toggleGroup="$submissionType" toggleLineColor="#5f99cf" />
-                  <JFXToggleButton fx:id="submissionTypeTextPost" maxHeight="-Infinity" minHeight="-Infinity" onAction="#onTextSubmission" prefHeight="25.0" size="9.0" text="Text Post" toggleColor="ORANGERED" toggleGroup="$submissionType" toggleLineColor="#5f99cf" />
-                  <JFXToggleButton fx:id="submissionTypeLink" maxHeight="-Infinity" minHeight="-Infinity" onAction="#onLinkSubmission" prefHeight="25.0" size="9.0" text="Link Post" toggleColor="ORANGERED" toggleGroup="$submissionType" toggleLineColor="#5f99cf" />
-                  <JFXToggleButton fx:id="submissionTypeCrosspost" maxHeight="-Infinity" minHeight="-Infinity" onAction="#onCrosspostSubmission" prefHeight="25.0" size="9.0" text="Crosspost" toggleColor="ORANGERED" toggleGroup="$submissionType" toggleLineColor="#5f99cf" />
+                  <JFXToggleButton fx:id="submissionTypeComment" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" size="9.0" text="Comment" toggleColor="ORANGERED" toggleGroup="$submissionType" toggleLineColor="#5f99cf" />
+                  <JFXToggleButton fx:id="submissionTypeTextPost" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" size="9.0" text="Text Post" toggleColor="ORANGERED" toggleGroup="$submissionType" toggleLineColor="#5f99cf" />
+                  <JFXToggleButton fx:id="submissionTypeLink" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" size="9.0" text="Link Post" toggleColor="ORANGERED" toggleGroup="$submissionType" toggleLineColor="#5f99cf" />
+                  <JFXToggleButton fx:id="submissionTypeCrosspost" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" size="9.0" text="Crosspost" toggleColor="ORANGERED" toggleGroup="$submissionType" toggleLineColor="#5f99cf" />
                </children>
             </HBox>
             <Separator prefHeight="5.0">
@@ -61,7 +61,7 @@
                   <Insets />
                </opaqueInsets>
             </Separator>
-            <Label text="Checking following:" textAlignment="CENTER">
+            <Label text="Searching Checks:" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -72,7 +72,7 @@
                   <Insets bottom="10.0" />
                </padding>
             </Label>
-            <HBox alignment="TOP_CENTER" spacing="10.0">
+            <HBox fx:id="topLevelCheckBoxes" alignment="TOP_CENTER" spacing="10.0">
                <children>
                   <JFXCheckBox fx:id="checkId" checkedColor="ORANGERED" onAction="#onCheckSelected" text="Id" unCheckedColor="#5f99cf" />
                   <JFXCheckBox fx:id="checkTitle" checkedColor="ORANGERED" onAction="#onCheckSelected" text="Title" unCheckedColor="#5f99cf" />
@@ -101,6 +101,60 @@
                </opaqueInsets>
             </Separator>
             <VBox fx:id="topLevelChecksContainer" />
+            <Separator prefHeight="5.0">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Separator>
+            <Label text="Optional Sub Group Checks" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Label>
+            <HBox fx:id="subGrpTypeCheckBoxes" alignment="TOP_CENTER" spacing="10.0">
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+               <children>
+                  <JFXCheckBox fx:id="subGrpParentSub" checkedColor="ORANGERED" text="Parent Submission" unCheckedColor="#5f99cf" />
+                  <JFXCheckBox fx:id="subGrpAuthor" checkedColor="ORANGERED" text="Auhtor" unCheckedColor="#5f99cf" />
+                  <JFXCheckBox fx:id="subGrpCrosspostAuthor" checkedColor="ORANGERED" text="Crosspost Author" unCheckedColor="#5f99cf" />
+                  <JFXCheckBox fx:id="subGrpCrosspostSubreddit" checkedColor="ORANGERED" text="Crosspost Subreddit" unCheckedColor="#5f99cf" />
+               </children>
+            </HBox>
+            <HBox fx:id="subGrpCheckBoxes" alignment="TOP_CENTER" spacing="10.0">
+               <children>
+                  <JFXCheckBox fx:id="subGrpCheckId" checkedColor="ORANGERED" disable="true" onAction="#onSubGrpCheckSelected" text="Id" unCheckedColor="#5f99cf" />
+                  <JFXCheckBox fx:id="subGrpCheckTitle" checkedColor="ORANGERED" disable="true" onAction="#onSubGrpCheckSelected" text="Title" unCheckedColor="#5f99cf" />
+                  <JFXCheckBox fx:id="subGrpCheckDomain" checkedColor="ORANGERED" disable="true" onAction="#onSubGrpCheckSelected" text="Domain" unCheckedColor="#5f99cf" />
+                  <JFXCheckBox fx:id="subGrpCheckUrl" checkedColor="ORANGERED" disable="true" onAction="#onSubGrpCheckSelected" text="Url" unCheckedColor="#5f99cf" />
+                  <JFXCheckBox fx:id="subGrpCheckBody" checkedColor="ORANGERED" disable="true" onAction="#onSubGrpCheckSelected" text="Body" unCheckedColor="#5f99cf" />
+                  <JFXCheckBox fx:id="subGrpCheckFlairText" checkedColor="ORANGERED" disable="true" onAction="#onSubGrpCheckSelected" text="Flair Text" unCheckedColor="#5f99cf" />
+                  <JFXCheckBox fx:id="subGrpCheckFlairCssClass" checkedColor="ORANGERED" disable="true" onAction="#onSubGrpCheckSelected" text="Flair CSS Class" unCheckedColor="#5f99cf" />
+                  <JFXCheckBox fx:id="subGrpCheckName" checkedColor="ORANGERED" disable="true" onAction="#onSubGrpCheckSelected" text="Name" unCheckedColor="#5f99cf" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </HBox>
+            <Separator prefHeight="5.0">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Separator>
+            <VBox fx:id="subGroupChecksContainer" />
             <Separator prefHeight="5.0">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
